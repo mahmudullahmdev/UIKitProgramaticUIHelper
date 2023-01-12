@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 extension UIView {
-    func setConstraints(topOf: UIView) {
+    public  func setConstraints(topOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraint = self.bottomAnchor.constraint(equalTo: topOf.topAnchor)
         NSLayoutConstraint.activate([
@@ -21,7 +21,7 @@ extension UIView {
         }
         
     }
-    func setConstraints(bottomOf: UIView) {
+    public func setConstraints(bottomOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraint =  self.topAnchor.constraint(equalTo: bottomOf.bottomAnchor)
         
@@ -35,7 +35,7 @@ extension UIView {
             Utils.instance.constraints[self.accessibilityIdentifier ?? ""] = [.topAnchor : constraint]
         }
     }
-    func setConstraints(leftOf: UIView) {
+    public func setConstraints(leftOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraint = self.rightAnchor.constraint(equalTo: leftOf.leftAnchor)
         
@@ -50,7 +50,7 @@ extension UIView {
         }
         
     }
-    func setConstraints(rightOf: UIView) {
+    public func setConstraints(rightOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraint = self.leftAnchor.constraint(equalTo: rightOf.rightAnchor)
         NSLayoutConstraint.activate([
@@ -63,7 +63,7 @@ extension UIView {
             Utils.instance.constraints[self.accessibilityIdentifier ?? ""] = [.leftAnchor : constraint]
         }
     }
-    func setConstraints(centerOf: UIView) {
+    public func setConstraints(centerOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.centerYAnchor.constraint(equalTo: centerOf.centerYAnchor),
@@ -71,7 +71,7 @@ extension UIView {
             
         ])
     }
-    func setConstraints(topOf: UIView, bottomOf: UIView, leftOf: UIView, rightOf: UIView) {
+    public  func setConstraints(topOf: UIView, bottomOf: UIView, leftOf: UIView, rightOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let bottomAnchor = self.bottomAnchor.constraint(equalTo: topOf.topAnchor)
         let topAnchor =  self.topAnchor.constraint(equalTo: bottomOf.bottomAnchor)
@@ -104,7 +104,7 @@ extension UIView {
         
     }
     
-    func setConstraints(topToTopOf: UIView) {
+    public func setConstraints(topToTopOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let topAnchor = self.topAnchor.constraint(equalTo: topToTopOf.topAnchor)
         NSLayoutConstraint.activate([
@@ -119,7 +119,7 @@ extension UIView {
         
     }
     
-    func setConstraints(bottomToBottomOf: UIView) {
+    public func setConstraints(bottomToBottomOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let bottomAnchor = self.bottomAnchor.constraint(equalTo: bottomToBottomOf.bottomAnchor)
         NSLayoutConstraint.activate([
@@ -133,7 +133,7 @@ extension UIView {
         }
     }
     
-    func setConstraints(leadingToLeadingOf: UIView) {
+    public  func setConstraints(leadingToLeadingOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let leadingAnchor = self.leftAnchor.constraint(equalTo: leadingToLeadingOf.leftAnchor)
         NSLayoutConstraint.activate([
@@ -146,7 +146,7 @@ extension UIView {
             Utils.instance.constraints[self.accessibilityIdentifier ?? ""] = [.leftAnchor : leadingAnchor]
         }    }
     
-    func setConstraints(trailingToTrailingOf: UIView) {
+    public func setConstraints(trailingToTrailingOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let rightAnchor =  self.rightAnchor.constraint(equalTo: trailingToTrailingOf.rightAnchor)
         NSLayoutConstraint.activate([
@@ -160,7 +160,7 @@ extension UIView {
         }
     }
     
-    func setConstraintsToSafeArea(parentView: UIView) {
+    public  func setConstraintsToSafeArea(parentView: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let margins = parentView.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
@@ -171,7 +171,7 @@ extension UIView {
         ])
         
     }
-    func setConstraintsToParentView(parentView: UIView) {
+    public func setConstraintsToParentView(parentView: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.topAnchor.constraint(equalTo: parentView.topAnchor),
@@ -182,26 +182,26 @@ extension UIView {
         
     }
     
-    func padding(top: Double) {
+    public  func padding(top: Double) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraints = Utils.instance.constraints
         let selfConstraints = constraints[self.accessibilityIdentifier ?? ""] ?? [.leftAnchor : NSLayoutConstraint()]
         selfConstraints[.topAnchor]?.constant = top
     }
-    func padding(bottom: Double) {
+    public  func padding(bottom: Double) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraints = Utils.instance.constraints
         let selfConstraints = constraints[self.accessibilityIdentifier ?? ""] ?? [.leftAnchor : NSLayoutConstraint()]
         selfConstraints[.bottomAnchor]?.constant = bottom
     }
-    func padding(left: Double) {
+    public  func padding(left: Double) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraints = Utils.instance.constraints
         let selfConstraints = constraints[self.accessibilityIdentifier ?? ""] ?? [.leftAnchor : NSLayoutConstraint()]
         selfConstraints[.leftAnchor]?.constant = left
         
     }
-    func padding(right: Double) {
+    public  func padding(right: Double) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraints = Utils.instance.constraints
         let selfConstraints = constraints[self.accessibilityIdentifier ?? ""] ?? [.leftAnchor : NSLayoutConstraint()]

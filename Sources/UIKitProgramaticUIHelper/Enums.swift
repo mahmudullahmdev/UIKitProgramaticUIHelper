@@ -6,7 +6,7 @@
 //
 
 import Foundation
- enum Alignment {
+ public enum Alignment {
     case center
     case centerVertically
     case centerHorizontally
@@ -21,7 +21,7 @@ import Foundation
     
 }
 
-enum Anchors {
+public enum Anchors {
     case topAnchor
     case bottomAnchor
     case leftAnchor

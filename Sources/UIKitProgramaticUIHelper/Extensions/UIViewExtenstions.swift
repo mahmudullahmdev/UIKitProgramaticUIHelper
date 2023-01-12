@@ -9,21 +9,21 @@ import Foundation
 import UIKit
 
 extension UIView {
-    func setFrame( width: Double, height: Double) {
+    public  func setFrame( width: Double, height: Double) {
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalToConstant: height),
             self.widthAnchor.constraint(equalToConstant: width),
             
         ])
     }
-    func setFrame( height: Double) {
+    public  func setFrame( height: Double) {
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalToConstant: height),
             
         ])
     }
     
-    func setFrame(width: Double, height: Double, alignment: Alignment, parentView: UIView) {
+    public func setFrame(width: Double, height: Double, alignment: Alignment, parentView: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalToConstant: height),

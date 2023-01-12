@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 extension UIView {
-    func alignment(alignment: Alignment, parentView: UIView) {
+    public func alignment(alignment: Alignment, parentView: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         switch alignment {
         case .center:
