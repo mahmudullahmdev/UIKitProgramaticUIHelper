@@ -6,7 +6,7 @@
 //
 
 import Foundation
-enum Alignment {
+ enum Alignment {
     case center
     case centerVertically
     case centerHorizontally
