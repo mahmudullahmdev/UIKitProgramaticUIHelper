@@ -182,6 +182,28 @@ extension UIView {
         
     }
     
+    public func setupScrollView(scrollView: UIScrollView, contentView: UIView) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        NSLayoutConstraint.activate([
+            scrollView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            scrollView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+        
+               
+              
+    }
+    
     public  func padding(top: Double) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraints = Utils.instance.constraints
