@@ -26,4 +26,5 @@ public enum Anchors {
     case bottomAnchor
     case leftAnchor
     case rightAnchor
+    case widthAnchor
 }

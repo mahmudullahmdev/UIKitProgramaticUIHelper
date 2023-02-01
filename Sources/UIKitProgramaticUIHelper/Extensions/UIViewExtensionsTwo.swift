@@ -132,15 +132,24 @@ extension UIView {
             Utils.instance.constraints[self.accessibilityIdentifier ?? ""] = [.bottomAnchor : bottomAnchor]
         }
     }
-    
+    public func setConstraints(widthToWidthOf: UIView) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        let widthAnchor = self.widthAnchor.constraint(equalTo: widthToWidthOf.widthAnchor, multiplier: 3/4)
+        NSLayoutConstraint.activate([
+            widthAnchor
+        ])
+        let constraintsDic =  Utils.instance.constraints[self.accessibilityIdentifier ?? ""]
+        if constraintsDic != nil {
+            Utils.instance.constraints[self.accessibilityIdentifier ?? ""]?[.widthAnchor] = widthAnchor
+        } else {
+            Utils.instance.constraints[self.accessibilityIdentifier ?? ""] = [.widthAnchor : widthAnchor]
+        }
+    }
     public  func setConstraints(leadingToLeadingOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let leadingAnchor = self.leftAnchor.constraint(equalTo: leadingToLeadingOf.leftAnchor)
-        let widthAnchor = self.widthAnchor.constraint(equalTo: leadingToLeadingOf.widthAnchor, multiplier: 3/4)
         NSLayoutConstraint.activate([
-            widthAnchor,
             leadingAnchor,
-            
         ])
         let constraintsDic =  Utils.instance.constraints[self.accessibilityIdentifier ?? ""]
         if constraintsDic != nil {
@@ -152,12 +161,8 @@ extension UIView {
     public func setConstraints(trailingToTrailingOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let rightAnchor =  self.rightAnchor.constraint(equalTo: trailingToTrailingOf.rightAnchor)
-        let widthAnchor = self.widthAnchor.constraint(equalTo: trailingToTrailingOf.widthAnchor, multiplier: 3/4)
-        
         NSLayoutConstraint.activate([
-            widthAnchor,
             rightAnchor,
-            
         ])
         let constraintsDic =  Utils.instance.constraints[self.accessibilityIdentifier ?? ""]
         if constraintsDic != nil {
