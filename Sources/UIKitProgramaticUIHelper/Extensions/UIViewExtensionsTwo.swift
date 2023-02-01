@@ -136,8 +136,11 @@ extension UIView {
     public  func setConstraints(leadingToLeadingOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let leadingAnchor = self.leftAnchor.constraint(equalTo: leadingToLeadingOf.leftAnchor)
+        let widthAnchor = self.widthAnchor.constraint(equalTo: leadingToLeadingOf.widthAnchor, multiplier: 3/4)
         NSLayoutConstraint.activate([
-            leadingAnchor
+            widthAnchor,
+            leadingAnchor,
+            
         ])
         let constraintsDic =  Utils.instance.constraints[self.accessibilityIdentifier ?? ""]
         if constraintsDic != nil {
@@ -149,8 +152,12 @@ extension UIView {
     public func setConstraints(trailingToTrailingOf: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let rightAnchor =  self.rightAnchor.constraint(equalTo: trailingToTrailingOf.rightAnchor)
+        let widthAnchor = self.widthAnchor.constraint(equalTo: trailingToTrailingOf.widthAnchor, multiplier: 3/4)
+        
         NSLayoutConstraint.activate([
-            rightAnchor
+            widthAnchor,
+            rightAnchor,
+            
         ])
         let constraintsDic =  Utils.instance.constraints[self.accessibilityIdentifier ?? ""]
         if constraintsDic != nil {
@@ -183,7 +190,6 @@ extension UIView {
     }
     
     public func setupScrollView(scrollView: UIScrollView, contentView: UIView) {
-        self.translatesAutoresizingMaskIntoConstraints = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(scrollView)
@@ -200,8 +206,8 @@ extension UIView {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
         
-               
-              
+        
+        
     }
     
     public  func padding(top: Double) {
