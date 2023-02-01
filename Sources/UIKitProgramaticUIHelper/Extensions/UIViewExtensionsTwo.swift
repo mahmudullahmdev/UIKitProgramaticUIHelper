@@ -200,15 +200,17 @@ extension UIView {
         self.addSubview(scrollView)
         scrollView.addSubview(contentView)
         NSLayoutConstraint.activate([
-            scrollView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            scrollView.widthAnchor.constraint(equalTo: self.widthAnchor),
             scrollView.topAnchor.constraint(equalTo: self.topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: self.rightAnchor),
             scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
         
         
@@ -238,7 +240,7 @@ extension UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraints = Utils.instance.constraints
         let selfConstraints = constraints[self.accessibilityIdentifier ?? ""] ?? [.leftAnchor : NSLayoutConstraint()]
-        selfConstraints[.rightAnchor]?.constant = right
+        selfConstraints[.rightAnchor]?.constant = -right
     }
 }
 
