@@ -227,7 +227,7 @@ extension UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraints = Utils.instance.constraints
         let selfConstraints = constraints[self.accessibilityIdentifier ?? ""] ?? [.leftAnchor : NSLayoutConstraint()]
-        selfConstraints[.bottomAnchor]?.constant = bottom
+        selfConstraints[.bottomAnchor]?.constant = -bottom
     }
     public  func padding(left: Double) {
         self.translatesAutoresizingMaskIntoConstraints = false
