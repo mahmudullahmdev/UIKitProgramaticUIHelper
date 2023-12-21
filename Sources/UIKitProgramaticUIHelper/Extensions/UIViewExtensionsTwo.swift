@@ -185,13 +185,10 @@ extension UIView {
     }
     public func insertMeInto(view: UIView) {
         view.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.topAnchor.constraint(equalTo: view.topAnchor),
-            self.leftAnchor.constraint(equalTo: view.leftAnchor),
-            self.rightAnchor.constraint(equalTo: view.rightAnchor),
-            self.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+        self.setConstraints(topToTopOf: view)
+        self.setConstraints(leadingToLeadingOf: view)
+        self.setConstraints(trailingToTrailingOf: view)
+        self.setConstraints(bottomToBottomOf: view)
         
     }
     public func setConstraintsToParentView(parentView: UIView) {
